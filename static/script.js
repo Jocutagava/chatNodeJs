@@ -2,7 +2,9 @@
 const socket = io();
 const form = document.getElementById('form');
 const input = document.getElementById('input');
-const message = document.getElementById('messages')
+const message = document.getElementById('messages');
+const nick = document.getElementById('changeNick')
+let nickVal = document.getElementById('changeNick').val 
 
 form.addEventListener('submit', function(e){
     e.preventDefault();
@@ -16,4 +18,9 @@ socket.on('message', function(a){
      item.textContent = a
      message.appendChild(item)
   window.scrollTo(0,document.body.scrollHeight)
+})
+
+nick.addEventListener('submit', function(b){
+    let nickName = prompt("What is your new nickname?")
+    nickVal = nickName
 })

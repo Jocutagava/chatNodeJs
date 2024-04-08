@@ -49,4 +49,6 @@ io.on('connection', (socket)=>{
     socket.on('new_message', (message)=>{
         io.emit('message', message)
     })
+
+    let userNickname = 'user'
 });
