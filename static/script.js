@@ -6,6 +6,16 @@ const message = document.getElementById('messages');
 const nick = document.getElementById('changeNick')
 let nickVal = document.getElementById('changeNick').val 
 
+
+socket.on('all_messages', function(msgArray){
+    msgArray.forEach(msg => {
+        let item = document.createElement('li');
+        item.textContent = msg.login + ': ' + msg.content;
+        messages.appendChild(item);
+    });
+    window.scrollTo(0, document.body.scrollHeight);
+});
+
 form.addEventListener('submit', function(e){
     e.preventDefault();
     if(input.value){
