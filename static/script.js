@@ -20,7 +20,11 @@ socket.on('message', function(a){
   window.scrollTo(0,document.body.scrollHeight)
 })
 
-nick.addEventListener('submit', function(b){
-    let nickName = prompt("What is your new nickname?")
-    nickVal = nickName
-})
+function changeNickName(){
+    let nickname = prompt("What's your name?");
+    if(nickname){
+        socket.emit('set_nickname', nickname)
+    }
+}
+
+changeNickName()
